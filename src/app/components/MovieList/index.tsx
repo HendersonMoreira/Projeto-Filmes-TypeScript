@@ -25,7 +25,7 @@ export default function MovieList() {
                 method: 'get',
                 url: 'https://api.themoviedb.org/3/discover/movie',
                 params: {
-                    api_key: '83764158abee749bb576cae6afbbdb94',
+                    api_key: '...',
                     language: 'pt-BR',
                     page: page
                 }
