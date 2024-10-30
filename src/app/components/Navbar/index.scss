@@ -1,0 +1,94 @@
+// index.scss
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    margin-right: auto; /* Move the title to the left */
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem; /* Adjust the margin to control spacing */
+}
+
+.navbar-search input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.navbar-search button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar-search button:hover {
+    background-color: #ff7979;
+}
+
+.menu-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 0.5rem; /* Adjust the margin to control spacing */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #444;
+    color: #fff;
+    padding: 1rem;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background-color: #575757;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
