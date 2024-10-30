@@ -1,12 +1,17 @@
 'use client';
 
+<<<<<<< HEAD
 import { useEffect, useState, useCallback } from 'react';
+=======
+import { useEffect, useState } from 'react';
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
 import './index.scss';
 import axios from 'axios';
 import MovieCard from '../MovieCard';
 import { Movie } from '@/types/movie';
 import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
+<<<<<<< HEAD
 import Navbar from '../Navbar';
 
 const categoriesMap: { [key: string]: string } = {
@@ -24,12 +29,15 @@ interface APIParams {
   query?: string;
   with_genres?: string;
 }
+=======
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
 
 export default function MovieList() {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [pageCount, setPageCount] = useState<number>(0);
+<<<<<<< HEAD
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [selectedCategory, setSelectedCategory] = useState<string>('');
 
@@ -40,10 +48,17 @@ export default function MovieList() {
 
         return () => clearTimeout(delayDebounceFn);
     }, [currentPage, searchQuery, selectedCategory]);
+=======
+
+    useEffect(() => {
+        getMovies(currentPage + 1);
+    }, [currentPage]);
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
 
     const getMovies = async (page: number) => {
         setIsLoading(true);
         try {
+<<<<<<< HEAD
             const params: APIParams = {
                 api_key: '83764158abee749bb576cae6afbbdb94',
                 language: 'pt-BR',
@@ -66,18 +81,34 @@ export default function MovieList() {
                 params: params
             });
 
+=======
+            const response = await axios({
+                method: 'get',
+                url: 'https://api.themoviedb.org/3/discover/movie',
+                params: {
+                    api_key: '...',
+                    language: 'pt-BR',
+                    page: page
+                }
+            });
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
             setMovies(response.data.results);
             setPageCount(response.data.total_pages);
         } catch (error) {
             console.error("Erro ao buscar filmes:", error);
         }
         setIsLoading(false);
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
 
     const handlePageClick = (data: { selected: number }) => {
         setCurrentPage(data.selected);
     };
 
+<<<<<<< HEAD
     const handleSearch = useCallback((query: string) => {
         setSearchQuery(query);
         setSelectedCategory('');  // Reset the category filter on search
@@ -90,6 +121,8 @@ export default function MovieList() {
         setCurrentPage(0); // Reset page to 0 on category change
     }, []);
 
+=======
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
     if (isLoading) {
         return (
             <div className='loading-container'>
@@ -100,7 +133,10 @@ export default function MovieList() {
 
     return (
         <div>
+<<<<<<< HEAD
             <Navbar onSearch={handleSearch} onSelectCategory={handleSelectCategory} />
+=======
+>>>>>>> 084e6d06905fe6f5e3e046070e70a91b479d3bdf
             <ul className="movie-list">
                 {movies.map((movie) =>
                     <MovieCard
