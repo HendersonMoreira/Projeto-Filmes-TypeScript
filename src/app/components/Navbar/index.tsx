@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './index.scss';
 
 const categories = ['Início', 'Ação', 'Mistério', 'Comédia', 'Drama', 'Ficção Científica'];
@@ -18,13 +18,8 @@ export default function Navbar({ onSearch, onSelectCategory }: { onSearch: (quer
     };
 
     const handleCategoryClick = (category: string) => {
-        if (category === 'Início') {
-            const currentYear = new Date().getFullYear();
-            onSelectCategory(currentYear.toString());
-        } else {
-            onSelectCategory(category);
-        }
-        setIsOpen(false);
+        onSelectCategory(category);
+        setIsOpen(false); // Fecha a barra lateral ao selecionar uma categoria
     };
 
     return (

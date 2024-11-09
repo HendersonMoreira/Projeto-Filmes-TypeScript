@@ -1,12 +1,14 @@
-import { Movie } from "@/types/movie"
-import StarRating from "../StarRating"
-import './index.scss'
+import { Movie } from "@/types/movie";
+import StarRating from "../StarRating";
+import './index.scss';
+import { Link } from 'react-router-dom';
+
 export interface Props {
-    movie: Movie
+    movie: Movie;
 }
 
 export default function MovieCard(props: Props) {
-    const movie = props.movie
+    const movie = props.movie;
 
     const formattedDate = new Date(movie.release_date).toLocaleDateString('pt-BR', {
         day: '2-digit',
@@ -14,11 +16,10 @@ export default function MovieCard(props: Props) {
         year: 'numeric'
     });
 
-
     return (
         <li className='movie-card'>
             <div className="movie-poster">
-                <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}}`} alt={movie.title} />
+                <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} />
             </div>
             <div className="movie-infos">
                 <p className="movie-title">
@@ -44,11 +45,11 @@ export default function MovieCard(props: Props) {
                             {formattedDate}
                         </p>
                     </div>
-                    <button className="btn-default">
+                    <Link to={`/movie/${movie.id}`} className="btn-default">
                         Ver Mais
-                    </button>
+                    </Link>
                 </div>
             </div>
         </li>
-    )
+    );
 }
